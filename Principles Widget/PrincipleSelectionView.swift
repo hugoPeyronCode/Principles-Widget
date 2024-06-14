@@ -33,26 +33,33 @@ struct TikTokSwipingBehavior: View {
     ]
     
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing: 0) {
-                ForEach(principles, id: \.self) { principle in
-                    ZStack {
-                        Rectangle()
-                            .background(.thickMaterial)
-                            .containerRelativeFrame([.horizontal, .vertical])
-                        Text(principle)
-                            .font(.title2)
-                            .bold()
-                            .fontDesign(.monospaced)
-                            .padding()
+        ZStack {
+            
+            Rectangle()
+                .foregroundStyle(.background)
+                .ignoresSafeArea()
+            
+            ScrollView(.vertical) {
+                LazyVStack(spacing: 0) {
+                    ForEach(principles, id: \.self) { principle in
+                        ZStack {
+                            Rectangle()
+                                .foregroundStyle(.background)
+                                .containerRelativeFrame([.horizontal, .vertical])
+                            Text(principle)
+                                .font(.title2)
+                                .bold()
+                                .fontDesign(.monospaced)
+                                .padding()
+                        }
                     }
                 }
+                .scrollTargetLayout()
             }
-            .scrollTargetLayout()
-        }
-        .scrollIndicators(.hidden)
-        .scrollTargetBehavior(.paging)
+            .scrollIndicators(.hidden)
+            .scrollTargetBehavior(.paging)
         .ignoresSafeArea()
+        }
     }
 }
 

@@ -14,12 +14,9 @@ struct Principle: Identifiable {
 }
 
 struct ContentView: View {
-    
-    @Binding var principle1 : String
-    
+    @State var principle1 : String
     var body: some View {
         VStack {
-            
             Text("My Principles")
                 .font(.largeTitle)
                 .bold()
@@ -36,10 +33,8 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(principle1: .constant("nothing"))
+    ContentView(principle1: "nothing")
 }
-
-
 
 struct PrincipleView : View {
     

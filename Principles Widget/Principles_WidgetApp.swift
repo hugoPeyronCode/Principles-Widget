@@ -11,7 +11,7 @@ import SwiftUI
 struct Principles_WidgetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(principle1: .constant(""))
         }
     }
 }
